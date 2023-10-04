@@ -1,32 +1,56 @@
-const express = require('express');
-const router = express.Router();
-const User = require('../models/user');
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const path = require('path');
+// const cors = require("cors");
+// const port = 5000;
 
-router.post('/login', async (req, res) => {
-  const { email, password } = req.body;
+// //mongoose
+// mongoose.connect("mongodb://localhost:27017/portDB", {useNewUrlParser: true});
 
-  const user = await User.findOne({ email });
-  if (!user || !user.comparePassword(password)) {
-    return res.status(401).json({ message: 'Invalid credentials' });
-  }
+// //Schema
+// var authSchema = new mongoose.Schema({
+//   username: String,
+//   password: String
+// });
 
-  const token = await user.generateToken();
-  res.json({ token });
-});
+// //Model
+// var Log = mongoose.model('Log', authSchema);
 
-router.post('/signup', async (req, res) => {
-  const { name, email, password } = req.body;
+// app.get("/", (req, res) => {
+  
+// });
 
-  const user = new User({
-    name,
-    email,
-    password,
-  });
+// app.post("/signup", (req, res) => {
+//   console.log(req.body);
+//   var myData = new Log(req.body)
+//   myData.save().then(()=>{
+//     console.log('done');
+//     res.send('This data has been saved to the database')
+//   }).catch(()=>{
+//     console.log('not done');
+//       res.status(400).send('Item was not saved to the database')
+//   });
+// });
 
-  await user.save();
+// app.post('/login', (req, res)=>{
+//   var username = req.body.username;
+//   var password = req.body.password;
 
-  const token = await user.generateToken();
-  res.json({ token });
-});
+//   console.log(req.body);
 
-module.exports = router;
+//   Log.find({username: `${username}`}, {password: `${password}`}, (err, docs)=>{
+//       if(docs.length == 0){
+//           console.log('acc not found');
+//           res.status(400).send('Invalid credentials')
+//       }
+//       else{
+//           console.log('acc found');
+//           console.log(username);
+//           const data = true;
+//           res.json(data);
+//       }
+//   });
+// })
+
+// // listen to server
+// app.listen(port, () => console.log("Server started on port " + port));
