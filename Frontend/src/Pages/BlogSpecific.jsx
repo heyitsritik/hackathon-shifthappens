@@ -1,12 +1,21 @@
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import BlogSpecific from "../BlogSpecific(example).jpg";
+import Divider from "@mui/material/Divider";
+import LocalFloristOutlinedIcon from "@mui/icons-material/LocalFloristOutlined";
+import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 
 const BlogDetail = () => {
+  const comment = [
+    {
+      user : "User",
+      content : "This is for demonstration purpose"
+    }
+  ]
   return (
     <div>
       <Navbar />
-      <br/>
+      <br />
       <div
         className="BlogSection"
         style={{
@@ -18,8 +27,8 @@ const BlogDetail = () => {
       >
         <h1>How will my baby's movements feel, week by week?</h1>
         <h5>Author Name</h5>
-        <br/>
-        <img src={BlogSpecific} />
+        <br />
+        <img style={{width: "50%"}} src={BlogSpecific} />
         <p style={{ textAlign: "center", width: "69%" }}>
           Every pregnancy is different, so it’s hard to say exactly what you’ll
           feel and when. If this is your first baby, you may not be able to feel
@@ -72,8 +81,20 @@ const BlogDetail = () => {
           of your womb and tummy will help to keep them in place. It may feel as
           if there's a melon pressing on your pelvic floor!
         </p>
+        <br />
+        <Divider>
+          <LocalFloristOutlinedIcon />
+        </Divider>
+        <h2 style={{paddingRight : "66rem"}}>
+          Comments
+        </h2>
+        {comment.map(val => {
+          return(<div style={{paddingRight : "55rem"}}>
+            {val.user} : {val.content} {}
+          </div>)
+        })}
       </div>
-      <br/>
+      <br />
       <Footer />
     </div>
   );

@@ -1,5 +1,12 @@
 import Woman2RoundedIcon from "@mui/icons-material/Woman2Rounded";
 import Women from "../WOMEN.png";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useNavigate as Navigate,
+} from "react-router-dom";
 const navBar = () => {
   return (
     <div
@@ -30,17 +37,40 @@ const navBar = () => {
           }}
         >
           <div style={{ padding: "0.75rem" }}>
-            <a href="url">LOG IN</a>
+            {/* <a href="url"></a> */}
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "black",
+                fontFamily: "Rubik, sans-serif",
+                fontWeight: 400,
+              }}
+              to="/"
+            >
+              HOME
+            </Link>
           </div>
           &nbsp; &nbsp;
           {/* <div style={{ padding: "0.75rem" }}> |  </div> */}
           {/* &nbsp;            &nbsp; */}
-          <div style={{ padding: "0.75rem" }}>
+          <div style={{ padding: "0.75rem",color : "black" }}>
             <a href="url">MAP</a>
           </div>
           &nbsp; &nbsp;
           <div style={{ padding: "0.75rem" }}>
-            <a href="url">BLOGS</a>
+
+            {/* <a href="url">BLOGS</a>s */}
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "black",
+                fontFamily: "Rubik, sans-serif",
+                fontWeight: 400,
+              }}
+              to="/blogs"
+            >
+              BLOGS
+            </Link>
           </div>
           &nbsp; &nbsp;
           <div style={{ padding: "0.75rem" }}>

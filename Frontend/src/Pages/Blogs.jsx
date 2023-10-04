@@ -5,6 +5,7 @@ import baby from "../Baby.jpg";
 import LocalFloristOutlinedIcon from "@mui/icons-material/LocalFloristOutlined";
 import Divider from "@mui/material/Divider";
 
+
 const Blogs = () => {
   const prod = [
     {
@@ -71,8 +72,9 @@ const Blogs = () => {
         {/* &nbsp; */}
         Blogs
       </h1>
+      <br/>
       <Divider>
-        <LocalFloristOutlinedIcon />
+        {/* <LocalFloristOutlinedIcon /> */}
       </Divider>
       <br />
       <div

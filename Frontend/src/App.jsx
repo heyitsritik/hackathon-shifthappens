@@ -6,11 +6,11 @@ import Accordian from "./component/Accordian";
 import Tab from "./component/Tab";
 import Vaccine from "./component/Vaccine";
 import Carasoul from "./component/Carasoul";
-import Divider from "@mui/material/Divider";
 import photo from "./WOMEN.png";
 import Blogs from "./component/BlogsShow(Homepage)";
 import BlogPage from './Pages/Blogs'
 import BlogSpecific from './Pages/BlogSpecific'
+import Divider from "@mui/material/Divider";
 import LocalFloristOutlinedIcon from "@mui/icons-material/LocalFloristOutlined";
 import {
   BrowserRouter as Router,
