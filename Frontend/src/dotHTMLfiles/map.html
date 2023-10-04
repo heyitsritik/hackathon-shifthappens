@@ -1,0 +1,227 @@
+<!doctype html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css" /> 
+
+    <!-- MAPBOX -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+
+<!-- BING MAP  -->
+<meta charset="utf-8" />
+<script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&setLang=hi&key=An9nJse7chIoj5IhtfZ0AwLGgdM7l0_12n0Ige3FllmAYbz_mGw-qnrISsSshx--' async defer></script>
+<script type="text/javascript">
+  function GetMap()
+  {
+  
+    // var map = new Microsoft.Maps.Map('#myMap');
+    //Customize the map location on start
+    var map = new Microsoft.Maps.Map('#myMap', {
+    showSearchBar : true,
+    credentials: 'Your Bing Maps Key',
+    center: new Microsoft.Maps.Location(22.304210, 73.193120),
+    mapTypeId: Microsoft.Maps.MapTypeId.road,
+    zoom: 10
+});
+
+     //Create an infobox at the center of the map but don't show it.
+      infobox = new Microsoft.Maps.Infobox(map.getCenter(), {
+            visible: false
+        });
+        //Assign the infobox to a map instance.
+        infobox.setMap(map);
+
+    //Request the user's location
+    var myLoc;
+      navigator.geolocation.getCurrentPosition(function (position) {
+            var loc = new Microsoft.Maps.Location(
+                position.coords.latitude,
+                position.coords.longitude);
+
+            myLoc = loc;
+            console.log(loc.latitude," ",loc.longitude)
+            //Add a pushpin at the user's location.
+            var pin = new Microsoft.Maps.Pushpin(loc,{
+              title : "YOU ARE HERE",
+              // text : "6RJR+Q57, MHB Colony, Mhada Colony, Borivali West, Mumbai, Maharashtra 400091",
+              icon: 'iconSMALL.jpg',
+            });
+            map.entities.push(pin);
+
+            // var nloc = new Microsoft.Maps.Location(19.095090, 72.849940)
+            // var npin = new Microsoft.Maps.Pushpin(nloc)
+            // map.entities.push(npin);
+
+            var nloc = new Microsoft.Maps.Location(19.23219, 72.84048)
+            var npin = new Microsoft.Maps.Pushpin(nloc,{
+              title : "Borivali Head Post Office"
+            })
+            
+            npin.metadata = {
+            title: 'Address',
+            description: '6RJR+Q57, MHB Colony, Mhada Colony, Borivali West, Mumbai, Maharashtra 400091'
+        };
+            //Add a click event handler to the pushpin.
+            Microsoft.Maps.Events.addHandler(npin, 'click', pushpinClicked);
+            
+            map.entities.push(npin);
+            
+  
+            var nloc = new Microsoft.Maps.Location(19.226220, 72.860800)
+            var npin = new Microsoft.Maps.Pushpin(nloc,{
+              title : "Borivali East Post Office"
+            })
+
+            npin.metadata = {
+            title: 'Address',
+            description: 'Ground Floor, Karmayog Building, Plot No. 2, Number 3, Carter Rd, Asara Colony, Borivali East, Mumbai, Maharashtra 400066'
+        };
+            //Add a click event handler to the pushpin.
+            Microsoft.Maps.Events.addHandler(npin, 'click', pushpinClicked);
+
+            map.entities.push(npin);
+
+            var nloc = new Microsoft.Maps.Location(19.09742, 72.85655)
+            var npin = new Microsoft.Maps.Pushpin(nloc,{
+              title : "NSH Mumbai, India Post"
+            })
+            map.entities.push(npin);
+
+            npin.metadata = {
+            title: 'Address',
+            description: '3VW4+79H, APSO Complex Nehru Road Chhatrapati Shivaji International Airport Area, Vile Parle, Mumbai, Maharashtra 400047'
+        };
+            //Add a click event handler to the pushpin.
+            Microsoft.Maps.Events.addHandler(npin, 'click', pushpinClicked);
+
+            // var nloc = new Microsoft.Maps.Location(22.304210, 73.193120)
+            // var npin = new Microsoft.Maps.Pushpin(nloc)
+            // map.entities.push(npin);
+            
+            //Center the map on the user's location.
+            map.setView({ center: loc, zoom: 13 });
+        });
+
+      //ADD DIR
+      // var directionsManager;
+      // //Load the directions module.
+      // Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function () {
+      //           //Create an instance of the directions manager.
+      //           directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+      //           console.log("The lOC",myLoc);
+      //           //Create waypoints to route between.
+      //           var seattleWaypoint = new Microsoft.Maps.Directions.Waypoint({ address: 'N', location: new Microsoft.Maps.Location(myLoc.latitude,myLoc.longitude)});
+      //           directionsManager.addWaypoint(seattleWaypoint);
+
+      //           var workWaypoint = new Microsoft.Maps.Directions.Waypoint({ address: 'Work', location: new Microsoft.Maps.Location(19.226220, 72.860800) });
+      //           directionsManager.addWaypoint(workWaypoint);
+
+      //           //Specify the element in which the itinerary will be rendered.
+      //           //MEANING SHOW DIRECTIONS
+      //           directionsManager.setRenderOptions({ itineraryContainer: '#directionsItinerary' });
+
+      //           // Microsoft.Maps.Events.addHandler(directionsManager, 'directionsError', directionsError);
+      //           // Microsoft.Maps.Events.addHandler(directionsManager, 'directionsUpdated', directionsUpdated);
+                
+      //           //Calculate directions.
+      //           directionsManager.calculateDirections();
+      //       });
+
+    }
+
+    function pushpinClicked(e) {
+        //Make sure the infobox has metadata to display.
+        if (e.target.metadata) {
+            //Set the infobox options with the metadata of the pushpin.
+            infobox.setOptions({
+                location: e.target.getLocation(),
+                title: e.target.metadata.title,
+                description: e.target.metadata.description,
+                visible: true
+            });
+        }
+    }
+
+//To search for the location and show the location
+//   var map, searchManager;
+// function GetMap() {
+//     map = new Microsoft.Maps.Map('#myMap', {
+//         credentials: 'Your Bing Maps Key'
+//     });
+
+//     //Make a request to geocode New York, NY.
+//     geocodeQuery("G P O Raopura Vadodara, Kharivav Rd, off Kothi Road, Jambubet, Vadodara, Gujarat 390001");
+// }
+
+// function geocodeQuery(query) {
+//     //If search manager is not defined, load the search module.
+//     if (!searchManager) {
+//         //Create an instance of the search manager and call the geocodeQuery function again.
+//         Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
+//             searchManager = new Microsoft.Maps.Search.SearchManager(map);
+//             geocodeQuery(query);
+//         });
+//     } else {
+//         var searchRequest = {
+//             where: query,
+//             callback: function (r) {
+//                 //Add the first result to the map and zoom into it.
+//                 if (r && r.results && r.results.length > 0) {
+//                     var pin = new Microsoft.Maps.Pushpin(r.results[0].location);
+//                     map.entities.push(pin);
+
+//                     map.setView({ bounds: r.results[0].bestView });
+//                 }
+//             },
+//             errorCallback: function (e) {
+//                 //If there is an error, alert the user about it.
+//                 alert("No results found.");
+//             }
+//         };
+
+//         //Make the geocode request.
+//         searchManager.geocode(searchRequest);
+//     }
+// }
+
+</script>
+
+<title>Add Map</title>
+    <!-- <script src="script.js"></script> -->
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+
+    <!-- Bing map  -->
+    <div id="myMap" style='position:relative;width:600px;height:400px;'></div>
+    <div id="directionsItinerary"></div>
+
+    <!--The div element for the Mapbox map -->
+    <!-- <div id="mapp">
+      <div id='map' style='width: 400px; height: 300px;'></div>
+    </div> -->
+    
+    <!-- Google Maps embeded form -->
+    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.324877841269!2d73.19505457602938!3d22.303549842776118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcf5903257fe3%3A0xf85c2898d2090d9e!2sG%20P%20O%20Raopura%20Vadodara%2C%20Kharivav%20Rd%2C%20Off%20Kothi%20Road%2C%20Jambubet%2C%20Vadodara%2C%20Gujarat%20390001!5e0!3m2!1sen!2sin!4v1694012435931!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+
+    <!-- Using Mapbox  -->
+    <!-- <script>
+    let lng = 73.193120;
+    let lat = 22.304210;
+    mapboxgl.accessToken = 
+    'pk.eyJ1Ijoic2FoaWwxMjEiLCJhIjoiY2xtN3NkdzcwMDRjazNqbzVzOHduOXl4ZCJ9.IWux2qzpZOHZROAifz3aJA';
+    const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v12', // style URL
+    center: [ lng, lat], // starting position [lng, lat]
+    zoom: 15, // starting zoom
+    });
+    </script> -->
+
+  </body>
+</html>

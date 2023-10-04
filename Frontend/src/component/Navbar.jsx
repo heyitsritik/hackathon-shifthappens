@@ -40,10 +40,6 @@ const navBar = () => {
           </div>
           &nbsp; &nbsp;
           <div style={{ padding: "0.75rem" }}>
-            <a href="url">COMMUNITY</a>
-          </div>
-          &nbsp; &nbsp;
-          <div style={{ padding: "0.75rem" }}>
             <a href="url">BLOGS</a>
           </div>
           &nbsp; &nbsp;
