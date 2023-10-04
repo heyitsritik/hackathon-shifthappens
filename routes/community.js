@@ -12,8 +12,8 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 //MONGOOSE
-mongoose.set('strictQuery', true);
-mongoose.connect("", {useNewUrlParser: true});
+// mongoose.set('strictQuery', true);
+mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true});
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
