@@ -14,7 +14,7 @@
 
 <!-- BING MAP  -->
 <meta charset="utf-8" />
-<script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&setLang=hi&key=An9nJse7chIoj5IhtfZ0AwLGgdM7l0_12n0Ige3FllmAYbz_mGw-qnrISsSshx--' async defer></script>
+<script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&setLang=en&key=An9nJse7chIoj5IhtfZ0AwLGgdM7l0_12n0Ige3FllmAYbz_mGw-qnrISsSshx--' async defer></script>
 <script type="text/javascript">
   function GetMap()
   {
@@ -57,14 +57,14 @@
             // var npin = new Microsoft.Maps.Pushpin(nloc)
             // map.entities.push(npin);
 
-            var nloc = new Microsoft.Maps.Location(19.23219, 72.84048)
+            var nloc = new Microsoft.Maps.Location(19.076842316400462, 72.88639193286986)
             var npin = new Microsoft.Maps.Pushpin(nloc,{
-              title : "Borivali Head Post Office"
+              title : "CritiCare Asia Hospital"
             })
             
             npin.metadata = {
             title: 'Address',
-            description: '6RJR+Q57, MHB Colony, Mhada Colony, Borivali West, Mumbai, Maharashtra 400091'
+            description: 'Building No 1, Kirol Road, Kirol Rd, off Lal Bahadur Shastri Marg, Ali Yavar Jung, Kurla West, Kurla, Mumbai, Maharashtra 400070'
         };
             //Add a click event handler to the pushpin.
             Microsoft.Maps.Events.addHandler(npin, 'click', pushpinClicked);
@@ -72,14 +72,70 @@
             map.entities.push(npin);
             
   
-            var nloc = new Microsoft.Maps.Location(19.226220, 72.860800)
+            var nloc = new Microsoft.Maps.Location(19.074003198505324, 72.88553362592113)
             var npin = new Microsoft.Maps.Pushpin(nloc,{
-              title : "Borivali East Post Office"
+              title : "New Life Care"
             })
 
             npin.metadata = {
             title: 'Address',
-            description: 'Ground Floor, Karmayog Building, Plot No. 2, Number 3, Carter Rd, Asara Colony, Borivali East, Mumbai, Maharashtra 400066'
+            description: '3, Vinobha Bhave Nagar, Kurla West, Kurla, Mumbai, Maharashtra 400070'
+        };
+            //Add a click event handler to the pushpin.
+            Microsoft.Maps.Events.addHandler(npin, 'click', pushpinClicked);
+
+            map.entities.push(npin);
+
+            var nloc = new Microsoft.Maps.Location(19.077166783912393, 72.87810927142039)
+            var npin = new Microsoft.Maps.Pushpin(nloc,{
+              title : "New Noor Hospital"
+            })
+
+            npin.metadata = {
+            title: 'Address',
+            description: 'Kurla Bus Depot Junction , Hallow Pul, Lal Bahadur Shastri Marg, Friends Colony, Kurla West, Kurla, Mumbai, Maharashtra 400070'
+        };
+            //Add a click event handler to the pushpin.
+            Microsoft.Maps.Events.addHandler(npin, 'click', pushpinClicked);
+
+            map.entities.push(npin);
+
+            var nloc = new Microsoft.Maps.Location(19.077166783912393, 72.87810927142039)
+            var npin = new Microsoft.Maps.Pushpin(nloc,{
+              title : "Habib Hospital"
+            })
+
+            npin.metadata = {
+            title: 'Address',
+            description: 'Plot No. 345, 345/1 & 238, AH Wadia Marg, Old Agra Road, Off, Lal Bahadur Shastri Marg, opp. Shalimar Hotel, Kurla West, Mumbai, Maharashtra 400070'
+        };
+            //Add a click event handler to the pushpin.
+            Microsoft.Maps.Events.addHandler(npin, 'click', pushpinClicked);
+
+            map.entities.push(npin);
+
+            var nloc = new Microsoft.Maps.Location(19.06933882779956, 72.88171416031092)
+            var npin = new Microsoft.Maps.Pushpin(nloc,{
+              title : "ZRS Hospital"
+            })
+
+            npin.metadata = {
+            title: 'Address',
+            description: 'Khan Abdul Majeed Marg, Brahmanwadi, Kurla West, Mumbai, Maharashtra 400070'
+        };
+            //Add a click event handler to the pushpin.
+            Microsoft.Maps.Events.addHandler(npin, 'click', pushpinClicked);
+
+            map.entities.push(npin);
+
+            var nloc = new Microsoft.Maps.Location(19.081668705146555, 72.88179999099879)
+            var npin = new Microsoft.Maps.Pushpin(nloc,{
+              title : "City Hospital & Research Centre"
+            })
+
+            npin.metadata = {
+            title: 'Address',
+            description: 'Sagar Palace A, City, Sonapur Ln, Friends Colony, Kurla West, Kurla, Mumbai, Maharashtra 400070'
         };
             //Add a click event handler to the pushpin.
             Microsoft.Maps.Events.addHandler(npin, 'click', pushpinClicked);
@@ -88,13 +144,13 @@
 
             var nloc = new Microsoft.Maps.Location(19.09742, 72.85655)
             var npin = new Microsoft.Maps.Pushpin(nloc,{
-              title : "NSH Mumbai, India Post"
+              title : "Netaji Hospital"
             })
             map.entities.push(npin);
 
             npin.metadata = {
             title: 'Address',
-            description: '3VW4+79H, APSO Complex Nehru Road Chhatrapati Shivaji International Airport Area, Vile Parle, Mumbai, Maharashtra 400047'
+            description: 'Raj Deep Building, Kurla West, Mumbai, 400070'
         };
             //Add a click event handler to the pushpin.
             Microsoft.Maps.Events.addHandler(npin, 'click', pushpinClicked);
