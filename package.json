@@ -1,0 +1,18 @@
+{
+  "name": "hackathon",
+  "version": "1.0.0",
+  "description": "maternal and child health portal",
+  "main": "home.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ritik mandal",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^6.1.0",
+    "mongoose": "^7.5.3",
+    "path": "^0.12.7"
+  }
+}
