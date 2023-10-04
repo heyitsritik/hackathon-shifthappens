@@ -18,8 +18,9 @@ mongoose.connect("mongodb://localhost:27017/portDB", {useNewUrlParser: true});
 
 //Schema
 var authSchema = new mongoose.Schema({
-  username: String,
-  password: String
+    username: String,
+  password: String,
+  usertype
 });
 
 //Model
