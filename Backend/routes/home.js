@@ -2,7 +2,7 @@ const express = require("express");
 const Router = express.Router();
 const { User, Log } = require("../models/user"); // Import the User model
 
-Router.get("/", (req, res) => {
+Router.get("/api", (req, res) => {
   // Your code here
 });
 
@@ -32,7 +32,7 @@ Router.post('/login', async (req, res) => {
       res.status(400).send('Invalid credentials');
     } else {
       console.log('Login successful');
-      res.json(user);
+      res.redirect("/")
     }
   } catch (err) {
     console.error('Error during login:', err);

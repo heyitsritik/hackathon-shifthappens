@@ -54,7 +54,7 @@ const navBar = () => {
           {/* <div style={{ padding: "0.75rem" }}> |  </div> */}
           {/* &nbsp;            &nbsp; */}
           <div style={{ padding: "0.75rem",color : "black" }}>
-            <a href="map.html">MAP</a>
+            <Link to="/map.html">MAP</Link>
           </div>
           &nbsp; &nbsp;
           <div style={{ padding: "0.75rem" }}>

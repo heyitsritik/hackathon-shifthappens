@@ -25,7 +25,7 @@ const BlogDetail = () => {
           gap: "1rem",
         }}
       >
-        <h1>How will my baby's movements feel, week by week?</h1>
+        <h1>How will my babys movements feel, week by week?</h1>
         <h5>Author Name</h5>
         <br />
         <img style={{width: "50%"}} src={BlogSpecific} />
@@ -46,26 +46,26 @@ const BlogDetail = () => {
           women find them unpleasant at first, but they quickly get used to the
           sensations. 20 weeks to 23 weeks You may notice gentle kicks, or
           repetitive jerking movements when your baby gets hiccups now. As the
-          weeks go by, your baby's activity will gradually increase and become
+          weeks go by, your babys activity will gradually increase and become
           stronger. You may find that your baby becomes more lively as the day
           goes on, kicking, squirming and somersaulting the most in the evening
           as you relax. Another top time for movements is just before or at
-          mealtimes. As your pregnancy progresses, you'll come to recognise your
-          baby's pattern of activity. 24 weeks to 28 weeks At this point in your
+          mealtimes. As your pregnancy progresses, youll come to recognise your
+          babys pattern of activity. 24 weeks to 28 weeks At this point in your
           pregnancy your baby still has plenty of space to move around freely.
           You’re likely to notice frequent movements and feel that your baby is
           very active. Limb movements may feel punchy, while whole-body
           movements may be smoother. You may even notice your little one jumping
-          at loud, sudden noises! If you haven't felt your baby move by 24
-          weeks, call your midwife. They should check your baby's heartbeat to
+          at loud, sudden noises! If you havent felt your baby move by 24
+          weeks, call your midwife. They should check your babys heartbeat to
           make sure all is well. 29 weeks to 31 weeks Your baby is likely to be
           making sharper, more definite movements now, such as strong kicks and
           pushes. Over the coming weeks, you may feel as if they’re fighting for
           space, as they run out of wriggle room in your womb (uterus). It may
           even be possible to see ripples of movement across your belly as your
           baby turns. 32 weeks to 35 weeks This may be the most exciting time
-          for feeling your baby move, as at 32 weeks your baby's movements will
-          be at their peak. Afterwards, the frequency of your baby's movements
+          for feeling your baby move, as at 32 weeks your babys movements will
+          be at their peak. Afterwards, the frequency of your babys movements
           will stay roughly the same until you give birth. As your baby grows
           and has less room to move, you may notice that the type of movement
           you feel changes. But you should still feel them moving as often as
@@ -77,9 +77,9 @@ const BlogDetail = () => {
           it again. You may also notice that your baby develops a regular time
           of the day when they’re most active. 36 weeks to 40 weeks If this is
           your first baby, they will probably take up their final head-down
-          position at around 36 weeks, if they haven't already. The firm muscles
+          position at around 36 weeks, if they havent already. The firm muscles
           of your womb and tummy will help to keep them in place. It may feel as
-          if there's a melon pressing on your pelvic floor!
+          if theres a melon pressing on your pelvic floor!
         </p>
         <br />
         <Divider>
@@ -89,7 +89,7 @@ const BlogDetail = () => {
           Comments
         </h2>
         {comment.map(val => {
-          return(<div style={{paddingRight : "55rem"}}>
+          (<div style={{paddingRight : "55rem"}}>
             {val.user} : {val.content} {}
           </div>)
         })}

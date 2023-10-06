@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 // Connect to MongoDB using Mongoose
-mongoose.connect('mongodb://0.0.0.0:27017/hackDB',{
-  useNewUrlParser:true,
-  useUnifiedTopology:true
+mongoose.connect('mongodb://0.0.0.0:27017/hackDB', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
 const db = mongoose.connection;
 
@@ -25,48 +25,46 @@ const commentSchema = new mongoose.Schema({
 const blogSchema = new mongoose.Schema({
   author: String,
   like: Number,
-  title:String,
-  content:String,
+  title: String,
+  content: String,
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  tags: {
-    type: [{
-      name: {
-        type: String,
-        required: true
-      }
-    }],
-    required: true
-  },
+  tags: [{
+
+    name: {
+      type: String,
+    }
+  }
+  ],
   comments: [commentSchema]
 });
 
 // Define User Schema
 const userSchema = new mongoose.Schema({
-    Name: {
-      type: String,
-      required: true,
-    },
-    age: {
-      type: String,
-      required: true,
-    },
-    phoneNumber: {
-      type: Number,
-      maxlength: 10,
-      minlength: 10,
-      required: true
-    },
-    email: {
-      type: String,
-      required: true
-    },
-    password: {
-      type: String,
-      required: true
-    }
+  Name: {
+    type: String,
+    required: true,
+  },
+  age: {
+    type: String,
+    required: true,
+  },
+  phoneNumber: {
+    type: Number,
+    maxlength: 10,
+    minlength: 10,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  }
 });
 
 const healthSchema = new mongoose.Schema({
@@ -102,4 +100,4 @@ const User = mongoose.model('User', userSchema);
 const Blog = mongoose.model('Blog', blogSchema);
 const Comment = mongoose.model('Comment', commentSchema);
 
-module.exports = { healthDetails, User, Blog, Comment, Log, mongoose};
+module.exports = { healthDetails, User, Blog, Comment, Log, mongoose };

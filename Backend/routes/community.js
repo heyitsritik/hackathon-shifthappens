@@ -7,12 +7,14 @@ Router.use(express.json());
 // Create a new blog post
 Router.post('/blogs', async (req, res) => {
   try {
-    const { author, like, user, tags } = req.body;
-    const blog = new Blog({ author, like, user, tags });
+    const { author, like, user, tags,content } = req.body;
+    console.log(req.body)
+    const blog = new Blog({ author, like, user, tags ,content});
+    console.log()
     await blog.save();
     res.status(201).json(blog);
   } catch (err) {
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json(err);
   }
 });
 
@@ -20,11 +22,29 @@ Router.post('/blogs', async (req, res) => {
 Router.get('/blogs', async (req, res) => {
   try {
     const blogs = await Blog.find().populate('user');
+    // console.log(blogs)
     res.status(200).json(blogs);
   } catch (err) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+Router.get('/blogs/:id', async (req, res) => {
+  try {
+    const blogId = req.params.id;
+    const blog = await Blog.findById(blogId);
+    if (!blog) {
+      return res.status(404).json({ error: 'Blog not found' });
+    }
+    res.send(blog);
+  } catch (err) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+
+
 
 // Create a new comment for a blog post
 Router.post('/blogs/:id/comments', async (req, res) => {
